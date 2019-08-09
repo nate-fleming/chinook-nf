@@ -1,0 +1,4 @@
+SELECT *
+FROM Invoice
+WHERE InvoiceDate BETWEEN '2009' AND '2010'
+OR InvoiceDate BETWEEN '2011' AND '2012'
