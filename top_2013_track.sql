@@ -1,10 +1,10 @@
-SELECT MAX(t.Name), MAX(t.Sales) AS Sales
+SELECT MAX(t.Name) AS Track, MAX(t.Sales) AS Sold
 FROM
-(SELECT  t.Name, SUM(t.UnitPrice) AS Sales
+(SELECT  t.Name, SUM(il.Quantity) AS Sales
 FROM InvoiceLine il
 LEFT JOIN Track t ON t.TrackId = il.TrackId
 LEFT JOIN Invoice i ON i.InvoiceId = il.InvoiceId
-WHERE i.InvoiceDate BETWEEN '2013' AND '2014'
+WHERE YEAR(i.InvoiceDate) = 2013
 GROUP BY t.Name)t
 
 
